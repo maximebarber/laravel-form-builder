@@ -3,6 +3,7 @@
 namespace App\Forms;
 
 use Kris\LaravelFormBuilder\Form;
+use App\Activite;
 
 class CommercantForm extends Form
 {
@@ -34,25 +35,14 @@ class CommercantForm extends Form
                 'label' => 'Prénom',
                 'rules' => 'required|min:3'
             ])
-/*             ->add('activites', 'choice', 
+            ->add('activites', 'entity',
             [
-                'choices' => 
-                [
-                    '1' => 'Boulangerie'
-                    '2' => 'Biscuiterie',
-                    '3' => 'Apiculture',
-                ],
-
-                'choice_options' => 
-                [
-                    'wrapper' => ['class' => 'choice-wrapper'],
-                    'label_attr' => ['class' => 'label-class'],
-                ],
-
-                'selected' => ['1', '2'],
+                'class' => Activite::class,
+                'property' => 'nom',
                 'expanded' => true,
                 'multiple' => true
-            ]) */
+            ])
+
             ->add('submit', 'submit',
             [
                 'label' => 'Envoyer'

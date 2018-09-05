@@ -6,6 +6,8 @@ namespace App\Http\Controllers;
 use Kris\LaravelFormBuilder\FormBuilder;
 use App\Forms\CommercantForm;
 use App\Commercant;
+use App\Activite;
+use Illuminate\Http\Request;
 
 class CommercantsController extends Controller
 {
@@ -43,9 +45,9 @@ class CommercantsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(FormBuilder $formBuilder)
+    public function store(FormBuilder $formBuilder, Request $request)
     {
-        $form = $formBuilder->create(CommercantForm::class);
+        /* $form = $formBuilder->create(CommercantForm::class);
 
         if (!$form->isValid())
         {
@@ -54,17 +56,21 @@ class CommercantsController extends Controller
 
         Commercant::create($form->getFieldValues());
 
-        return redirect('/commercants');
+        //Activite::create($form->getFieldValues());
 
-        /* $commercant = new Commercant;
+        return redirect('/commercants'); */
+
+        $commercant = new Commercant;
 
         $commercant->email = $request->email;
         $commercant->nom = $request->nom;
         $commercant->prenom = $request->prenom;
+        
+        $commercant->save();
 
-        $form->save();
+        Commercant::find($commercant->id)->activites()->attach($request->activites);
 
-        return redirect('/commercants'); */
+        return redirect('/commercants');
     }
 
     /**
