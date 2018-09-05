@@ -11,11 +11,6 @@ use Illuminate\Http\Request;
 
 class CommercantsController extends Controller
 {
-    /* public function __construct(FormBuilder $formBuilder)
-    {
-        $this->formBuilder = $formBuilder;
-    }*/
-
     /**
      * Display a listing of the resource.
      *
@@ -47,6 +42,8 @@ class CommercantsController extends Controller
      */
     public function store(FormBuilder $formBuilder, Request $request)
     {
+        //Other valid method for form validation
+
         /* $form = $formBuilder->create(CommercantForm::class);
 
         if (!$form->isValid())
@@ -68,6 +65,7 @@ class CommercantsController extends Controller
         
         $commercant->save();
 
+        // Add activités data to pivot table w/ current commerçant
         Commercant::find($commercant->id)->activites()->attach($request->activites);
 
         return redirect('/commercants');
@@ -117,15 +115,4 @@ class CommercantsController extends Controller
     {
         //
     }
-
-/*     // Make the form builder reusable for create and store methods
-    private function getForm(?Commercant $commercant = null)
-    {
-        $commercant = $commercant ?: new Commercant();
-
-        return $this->formBuilder->create(CommercantForm::class,
-        [
-            'model' => $commercant
-        ]);
-    } */
 }

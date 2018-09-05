@@ -14,3 +14,4 @@ class Activite extends Model
         return $this->belongsToMany('App\Commercant');
     }
 }
+ 
