@@ -164,7 +164,7 @@ return [
         ],
 
         'widgets' => [
-
+            'App\\Widgets\\Commercants'
         ],
 
     ],

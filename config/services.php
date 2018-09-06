@@ -26,7 +26,10 @@ return [
     ],
 
     'sparkpost' => [
-        'secret' => env('SPARKPOST_SECRET'),
+        'secret' => '8e665859c22f24f8ea6cf3d7d5c5a556ac288e53',
+        'options' => [
+            'endpoint' => 'https://api.eu.sparkpost.com/api/v1/transmissions',
+        ],
     ],
 
     'stripe' => [

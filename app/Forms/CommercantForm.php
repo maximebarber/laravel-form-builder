@@ -35,6 +35,7 @@ class CommercantForm extends Form
                 'label' => 'Prénom',
                 'rules' => 'required|min:3'
             ])
+            // Automatically generates the activities stored in db as checkboxs
             ->add('activites', 'entity',
             [
                 'class' => Activite::class,

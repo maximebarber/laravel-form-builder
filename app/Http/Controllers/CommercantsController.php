@@ -8,6 +8,7 @@ use App\Forms\CommercantForm;
 use App\Commercant;
 use App\Activite;
 use Illuminate\Http\Request;
+use Mail;
 
 class CommercantsController extends Controller
 {
@@ -42,7 +43,7 @@ class CommercantsController extends Controller
      */
     public function store(FormBuilder $formBuilder, Request $request)
     {
-        //Other valid method for form validation
+        // FormBuilder method for form validation
 
         /* $form = $formBuilder->create(CommercantForm::class);
 
@@ -57,6 +58,8 @@ class CommercantsController extends Controller
 
         return redirect('/commercants'); */
 
+        // Request method for form validation
+
         $commercant = new Commercant;
 
         $commercant->email = $request->email;
@@ -67,7 +70,7 @@ class CommercantsController extends Controller
 
         // Add activités data to pivot table w/ current commerçant
         Commercant::find($commercant->id)->activites()->attach($request->activites);
-
+        
         return redirect('/commercants');
     }
 
