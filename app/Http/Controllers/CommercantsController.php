@@ -70,7 +70,10 @@ class CommercantsController extends Controller
 
         // Add activités data to pivot table w/ current commerçant
         Commercant::find($commercant->id)->activites()->attach($request->activites);
-        
+
+        //Mail::to('maximebarber@gmail.com')
+            //->send(new Commercant($request->except('_token')));
+
         return redirect('/commercants');
     }
 

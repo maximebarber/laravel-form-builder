@@ -2,23 +2,30 @@
 
 namespace App\Mail;
 
+use App\Order;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
-use Illuminate\Contracts\Queue\ShouldQueue;
 
-class CommercantAdded extends Mailable
+class OrderShipped extends Mailable
 {
     use Queueable, SerializesModels;
+
+    /**
+     * The order instance.
+     *
+     * @var Order
+     */
+    public $commercant;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($commercant)
     {
-        //
+        $this->commercant = $commercant;
     }
 
     /**
@@ -28,8 +35,6 @@ class CommercantAdded extends Mailable
      */
     public function build()
     {
-        return $this
-            ->from('maximebarber@gmail.com')
-            ->view('emails.commercant');
+        return $this->view('emails.orders');
     }
 }

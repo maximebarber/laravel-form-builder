@@ -23,3 +23,9 @@ Route::get('/', function () {
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
+
+Route::get('/mailable', function () {
+    $commercant = App\Commercant::find(45);
+
+    return new App\Mail\OrderShipped($commercant);
+});
