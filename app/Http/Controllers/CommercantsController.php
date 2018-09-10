@@ -75,7 +75,7 @@ class CommercantsController extends Controller
         //Mail::to('maximebarber@gmail.com')
             //->send(new Commercant($request->except('_token')));
 
-        return redirect('/mailable/'.$commercant->id);
+        return redirect('/mail/'.$commercant->id);
 
         //Mail::to('maximebarber@gmail.com')->send(new OrderShipped($commercant));
     }
