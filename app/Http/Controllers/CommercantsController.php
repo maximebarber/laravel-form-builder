@@ -9,6 +9,7 @@ use App\Commercant;
 use App\Activite;
 use Illuminate\Http\Request;
 use Mail;
+use App\Mail\OrderShipped;
 
 class CommercantsController extends Controller
 {
@@ -74,7 +75,9 @@ class CommercantsController extends Controller
         //Mail::to('maximebarber@gmail.com')
             //->send(new Commercant($request->except('_token')));
 
-        return redirect('/commercants');
+        return redirect('/mailable/'.$commercant->id);
+
+        //Mail::to('maximebarber@gmail.com')->send(new OrderShipped($commercant));
     }
 
     /**

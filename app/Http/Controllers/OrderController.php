@@ -19,10 +19,15 @@ class OrderController extends Controller
      */
     public function ship(Request $request, $commercantId)
     {
-        $commercant = Commercant::findOrFail($commercantId);
+        //$commercant = Commercant::findOrFail($commercantId);
 
         // Ship order...
 
-        Mail::to('maximebarber@gmail.com')->send(new OrderShipped($commercantId));
+        //Mail::to('maximebarber@gmail.com')->send(new OrderShipped($commercantId));
+
+        /* Mail::send('emails.orders', ['commercantId' => $commercantId], function ($m) use ($commercantId)
+        {
+            $m->from($commercantId->email, $person->name)
+        }); */
     }
 }
