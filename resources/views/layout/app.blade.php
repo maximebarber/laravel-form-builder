@@ -10,13 +10,9 @@
  
 <body>
  
+@include('includes.navbar')
+
 <div class="container">
- 
-   <header class="row">
- 
-       {{-- @include('includes.header') --}}
- 
-   </header>
  
    <div id="main">
  

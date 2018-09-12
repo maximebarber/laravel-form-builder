@@ -28,10 +28,10 @@ class Commercants extends BaseDimmer
         return view('voyager::dimmer', array_merge($this->config, [
             'icon' => 'voyager-people',
             'title' => "{$count} {$string}",
-            'text' => __('voyager::dimmer.post_text', ['count' => $count, 'string' => Str::lower($string)]),
+            'text' => 'Vous avez '. $count . ' commerçants enregistré.',
             'button' => [
                 'text' => 'Commerçants',
-                'link' => route('voyager.posts.index'),
+                'link' => route('voyager.commercants.index'),
             ],
             'image' => voyager_asset('images/widget-backgrounds/02.jpg'),
         ]));
@@ -44,6 +44,6 @@ class Commercants extends BaseDimmer
      */
     public function shouldBeDisplayed()
     {
-        return Auth::user()->can('browse', Voyager::model('Post'));
+        return Auth::user()->can('browse', Voyager::model('User'));
     }
 }
