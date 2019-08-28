@@ -15,7 +15,7 @@
         "foundation-sites": "^6.5.0-rc.2",
         "jquery": "^3.3.1",
         "laravel-mix": "^2.0",
-        "lodash": "^4.17.4",
+        "lodash": "^4.17.13",
         "motion-ui": "^2.0.3",
         "popper.js": "^1.12",
         "scrollreveal": "^3.4.0",
